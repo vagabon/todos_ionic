@@ -4,6 +4,7 @@
   </ion-nav-buttons>
   <ion-content class="categories">
     <ion-list ui-sortable="sortableOptions" ng-model="vm.categories">
+      <button class="button button-block button-positive" ng-click="vm.formListAdd()" ng-if="vm.categories.length == 0"><i class="icon ion-plus placeholder-icon"></i>Ajouter une liste</button>
       <ion-item ng-repeat="category in vm.categories" href="#/fiche/{{category._id}}" ng-class="'border-{{category.color}}'" can-swipe="true">
         <div class="item-icon-left">
           <i class="icon {{category.icon}} placeholder-icon"></i>
