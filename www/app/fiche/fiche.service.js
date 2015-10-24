@@ -28,25 +28,24 @@ define([
       },
       getNbFicheParent: function (list) {
         var deferred = $q.defer();
-        service.initFicheService().then(function() {
-          for (var i in list) {
-            storageService.find(service.em, {index: {fields: ['parent']}}, {
-              index: i,
-              selector: {parent: list[i]._id},
-              fields: ['parent', 'completed']
-            }).then(function (res) {
-              var completed = 0;
-              for (var i in res.result.docs) {
-                if (res.result.docs[i].completed) {
-                  completed++;
-                }
+        service.initFicheService();
+        for (var i in list) {
+          storageService.find(service.em, {index: {fields: ['parent']}}, {
+            index: i,
+            selector: {parent: list[i]._id},
+            fields: ['parent', 'completed']
+          }).then(function (res) {
+            var completed = 0;
+            for (var i in res.result.docs) {
+              if (res.result.docs[i].completed) {
+                completed++;
               }
-              list[res.map.index].completed = completed;
-              list[res.map.index].all = res.result.docs.length;
-              deferred.resolve();
-            });
-          }
-        });
+            }
+            list[res.map.index].completed = completed;
+            list[res.map.index].all = res.result.docs.length;
+            deferred.resolve();
+          });
+        }
         return deferred.promise;
       }
     };
