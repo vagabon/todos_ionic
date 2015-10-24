@@ -38,7 +38,7 @@ define([
       // Insert a new TodoList
       vm.insert = function () {
         $ionicPopup.prompt({
-          title: "Enter a new Todo list",
+          title: "Ajouter un item",
           inputType: "text"
         }).then(function (result) {
           if (result !== undefined) {

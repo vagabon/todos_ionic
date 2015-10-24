@@ -4,6 +4,7 @@
   </ion-nav-buttons>
   <ion-content>
     <ion-list>
+      <button class="button button-block button-positive" ng-click="vm.insert()" ng-if="vm.lists.length == 0"><i class="icon ion-plus placeholder-icon"></i>Ajouter un item</button>
       <ion-item ng-repeat="list in vm.lists" ng-click="vm.click('{{$index}}')" ng-class="{completed: list.completed}"
                 on-swipe-left="vm.onSwipeLeft('{{$index}}')" on-swipe-right="vm.onSwipeRigth('{{$index}}')">
         <div ng-if="list.editer == undefined || !list.editer">
