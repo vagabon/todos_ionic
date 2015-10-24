@@ -9394,3 +9394,7 @@ a.button {
 
 .item p {
   margin-left: 10px; }
+
+.modal .button-clear {
+  right: 10px;
+  position: absolute; }
