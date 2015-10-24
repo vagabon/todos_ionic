@@ -1,0 +1,24 @@
+<ion-view title="{{vm.title}}">
+  <ion-nav-buttons side="right">
+    <button class="right button button-icon icon ion-plus" ng-click="vm.insert()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="list in vm.lists" ng-click="vm.click('{{$index}}')" ng-class="{completed: list.completed}"
+                on-swipe-left="vm.onSwipeLeft('{{$index}}')" on-swipe-right="vm.onSwipeRigth('{{$index}}')">
+        <div ng-if="list.editer == undefined || !list.editer">
+          <i class="icon placeholder-icon ion-android-checkbox-blank" ng-if="!list.completed"></i>
+          <i class="icon placeholder-icon ion-android-checkbox" ng-if="list.completed"></i>
+          {{list.value}}
+        </div>
+        <div ng-if="list.editer">
+          <label class="item item-input" style="margin-left: 60px;">
+            <i class="icon ion-edit placeholder-icon"></i>
+            <input type="search" ng-model="list.value" ng-blur="vm.blur($index); autofocus" ng-class="{editable : list.editer}">
+          </label>
+        </div>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="vm.delete('{{list._id}}')"></ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

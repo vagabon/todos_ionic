@@ -1,0 +1,25 @@
+<ion-view title="Mes listes">
+  <ion-nav-buttons side="right">
+    <button class="right button button-icon icon ion-plus" ng-click="vm.formListAdd()"></button>
+  </ion-nav-buttons>
+  <ion-content class="categories">
+    <ion-list ui-sortable="sortableOptions" ng-model="vm.categories">
+      <ion-item ng-repeat="category in vm.categories" href="#/fiche/{{category._id}}" ng-class="'border-{{category.color}}'" can-swipe="true">
+        <div class="item-icon-left">
+          <i class="icon {{category.icon}} placeholder-icon"></i>
+          <h2>{{category.name}}</h2>
+          <p>{{category.date}}</p>
+        </div>
+        <div class="count fond-{{category.color}}">
+         {{category.completed}} / {{category.all}}
+        </div>
+        <ion-option-button class="button-assertive icon ion-android-create" ng-click="vm.edit('{{category._id}}')"></ion-option-button>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="vm.delete('{{category._id}}')"></ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+<ul ui-sortable="sortableOptions" ng-model="vm.categories">
+  <li ng-repeat="category in vm.categories">{{ item }}</li>
+</ul>

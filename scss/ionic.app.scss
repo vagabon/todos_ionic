@@ -1,0 +1,90 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+$black: #474141;
+$green: #c9e0c9;
+$white: #FFFFFF;
+$grey: #a09b9b;
+$red: red;
+
+$darkgreen: #278727;
+$yellow: #939313;
+$darkorange: #c15300;
+$dimgrey: dimgrey;
+$darkred: darkred;
+
+
+
+.completed { background: $green !important; }
+.completed .item-content { background: inherit; }
+.bar.bar-stable, .bar-header {
+  background: $black;
+  .header-item, .button-icon, .title, .button, .placeholder-icon {
+    color: $white !important;
+  }
+}
+.button .placeholder-icon {
+  color: $white !important;
+}
+.button.button-positive { background: $black; color: $white !important; border-color: $white; }
+.menu {
+  background: $black; color: $white !important;
+  .item { border-color: $grey; border-top: none; }
+  .item-complex .item-content, .item-radio .item-content { background: $black; color: $white !important; }
+}
+.placeholder-icon { color: $black; }
+.placeholder-icon:last-child { padding-left: 10px; }
+.placeholder-icon:first-child { padding-right: 30px; }
+
+.menu-content .item-complex {
+  padding: 5px; margin: 15px;
+}
+.categories  {
+  .item-complex { border-left-width: 15px; }
+  .border-green { border-left-color: $darkgreen; }
+  .border-yellow { border-left-color: $yellow; }
+  .border-orange { border-left-color: $darkorange; }
+  .border-grey { border-left-color: $dimgrey; }
+  .border-red { border-left-color: $darkred; }
+}
+
+.chooseColor {
+  .scroll { width: 64%; }
+  .item-radio {
+    margin-right: 10px; display: inline-table;
+    .fond { width: 20px; }
+  }
+}
+.fond-green { background: $darkgreen; }
+.fond-yellow { background: $yellow; }
+.fond-orange { background: $darkorange; }
+.fond-grey { background: $dimgrey; }
+.fond-red { background: $darkred; }
+
+.button.button-assertive.ion-android-create { background: #b9bf18; }
+
+.error { color: $red; }
+.count { position: absolute; text-align: center; top: 15%; right: 15px; width: 100px; height: 50px; font-size: 21px; color: #FFFFFF; line-height: 48px; }
+
+.item h2 { margin-left: 10px; font-size: 25px; }
+.item p { margin-left: 10px; }

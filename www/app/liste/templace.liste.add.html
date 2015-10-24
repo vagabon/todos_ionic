@@ -1,0 +1,56 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title"><i class="icon ion-ios-list-outline placeholder-icon"></i>Nouvelle liste</h1>
+    <input type="hidden" ng-model="vm.formListData._id">
+    <div class="buttons">
+      <button class="button button-clear" ng-click="vm.formListClose()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="vm.formListSubmit()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label" ng-class="vm.formListData.error.name ? 'error' : '' ">Nom</span>
+          <input type="text" ng-model="vm.formListData.name">
+        </label>
+        <label class="item item-input">
+          <span class="input-label" ng-class="vm.formListData.error.date ? 'error' : '' ">Date</span>
+          <input type="date" ng-model="vm.formListData.date">
+        </label>
+        <label class="item item-input chooseColor">
+          <span class="input-label" ng-class="vm.formListData.error.color ? 'error' : '' ">Couleur</span>
+          <label class="item item-input scroll">
+            <ion-scroll direction="x">
+              <label class="item item-radio" ng-repeat="color in vm.formListData.colors">
+                <input type="radio" name="color" ng-model="vm.formListData.color" value="{{color}}">
+                <div class="item-content "><div class="fond fond-{{color}}">&nbsp;</div></div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            </ion-scroll>
+          </label>
+        </label>
+        <label class="item item-input chooseColor">
+          <span class="input-label" ng-class="vm.formListData.error.icon ? 'error' : '' ">Icone</span>
+          <label class="item item-input scroll">
+            <ion-scroll direction="x">
+              <label class="item item-radio" ng-repeat="icon in vm.formListData.icons">
+                <input type="radio" name="icon" ng-model="vm.formListData.icon" value="{{icon}}">
+                <div class="item-content "><div class="fond"><i class="icon {{icon}} placeholder-icon"></i></div></div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            </ion-scroll>
+          </label>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label" ng-class="vm.formListData.error.type ? 'error' : '' ">Type</div>
+          <select ng-model="vm.formListData.type">
+            <option ng-repeat="type in vm.formListData.types" value="{{type.value}}">{{type.name}}</option>
+          </select>
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit"><i class="icon ion-android-done-all placeholder-icon"></i>Ajouter</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

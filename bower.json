@@ -1,0 +1,12 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#>= 1.0.0",
+    "ng-cordova": "driftyco/ng-cordova#>= 0.1.20-alpha",
+    "requirejs": ">= 2.1.20",
+    "pouchdb" : ">= 4.0.1",
+    "jquery" : ">= 1.0.0",
+    "pouchdb-find": ">= 0.6.0"
+  }
+}
