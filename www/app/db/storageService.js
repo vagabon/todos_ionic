@@ -15,13 +15,14 @@ define([
     'use strict';
     var service = {
       init: function(base) {
-        var deferred = $q.defer();
-        PouchDB(base).then(function(db) {
-          deferred.resolve(db);
-        });
-        return deferred.promise;
+        return new PouchDB(base);
       },
       getAll: function(db) {
+        db.info().then(function (result) {
+          console.log(result.adapter);
+        }).catch(function (err) {
+          alert(err);
+        });
         var deferred = $q.defer();
         db.allDocs({include_docs: true}).then(function (result) {
           return $q.all(result.rows.map(function (row) {

@@ -14,22 +14,16 @@ define([
       em: null,
       lists: [],
       initFicheService: function () {
-        var deferred = $q.defer();
         if (service.em == null) {
-          storageService.init(service.nomBase).then(function(db) {
-            service.em = db;
-            deferred.resolve();
-          });
+          service.em = storageService.init(service.nomBase);
         }
-        return deferred.promise;
       },
       loadFicheService: function (id) {
         var deferred = $q.defer();
-        service.initFicheService().then(function() {
-          storageService.getBy(service.em, {parent: id}).then(function (res) {
-            deferred.resolve(res);
-          });
-        })
+        service.initFicheService();
+        storageService.getBy(service.em, {parent: id}).then(function (res) {
+          deferred.resolve(res);
+        });
         return deferred.promise;
       },
       getNbFicheParent: function (list) {
